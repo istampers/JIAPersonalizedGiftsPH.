@@ -1,263 +1,204 @@
-body {
-    font-family: 'Nexa', sans-serif;
-    font-weight: bold;
+/* Reset and General Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #07010c; /* Background color of the landscape */
+}
+body {
+    background-image: url('background-image.jpg');
+    background-size: cover; /* Adjusts the image to cover the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center center; /* Centers the image */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .container {
-    background-color: #230535; /* Background color of the rectangular container */
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
 }
 
 .logo {
-    width: 100px; /* Adjust as needed */
-    height: auto;
+    width: 20%; /* Adjust width as needed */
+    display: block;
+    margin: 0 auto;
 }
-
 .links {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
 }
 
 .link {
-    margin: 0 10px; /* Adjust as needed */
-    padding: 10px;
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    color: #ffedbe;
     text-decoration: none;
-    color: #ffffff;
-    transition: background-color 0.3s; /* Add transition for smooth hover effect */
+    margin: 0 20px; /* Adjust spacing between links */
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .link:hover {
-    background-color: #740dfc; /* Change the background color on hover */
+    background-color: #555;
+}
+
+/* Section Styles */
+.section {
+    padding: 50px 0;
 }
 
 .video-section {
-    position: relative;
-    width: 100%; 
-    height: auto;
-    overflow: hidden;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .video-section video {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Set video width to 100% */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.content {
-    position: relative;
-}
-
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('background-image.jpg'); /* URL of the background image */
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3; /* Adjust the opacity of the background image */
-    z-index: -1;
-
-  }
-.about {
-    display: flex;
-    justify-content: space-between;
-
-  }
-.rounded-box {
-    width: calc(23% - 20px); /* Adjust the width of each box */
-    height: 300px; /* Adjust the height of each box */
-    margin-bottom: 30px; /* Increase or decrease the space between boxes */
-    padding: 20px; /* Adjust the padding inside each box */
-    background-color: rgba(30, 3, 66, 0.5); /* Change the color and transparency */
-    color: #ffffff; /* Adjust the text color */
-    border-radius: 30px; /* Adjust the roundness of the corners */
-
-}
-
-@media (max-width: 768px) {
-    .video-section {
-        width: 100%;
-    }
-    .about .mission, .about .vision {
-        width: 100%;
-    }
-}
-/* Make the header sticky */
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Ensure the header is above other content */
-    background-color: #ffffff; /* Adjust the background color as needed */
-}
-
-/* Ensure the links are clickable */
-.links {
-    position: relative;
-}
-
-/* Adjust the margin to provide spacing below the header */
-.content {
-    margin-top: 100px; /* Adjust as needed */
-    margin-bottom: 20px;
-}
 .products {
     text-align: center;
+    margin-bottom: 40px;
 }
 
-.product-section h2 {
-    margin: 0 auto; /* Center the element horizontally */
-}
-  
-.product-item {
-    width: calc(100% - 10px); /* Adjust the width of each product item */
-    margin: 5px; /* Adjust the minimal margin between product items */
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.product-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.product-grid {
+.product-grid, .review-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Display 2 columns */
-    gap: 10px; /* Adjust the minimal gap between product items */
-    justify-content: center; /* Center the grid horizontally */
-}
-.products {
-    text-align: center;
-    margin-top: 50px; /* Adjust the top margin as needed */
-    margin-bottom: 20px; /* Adjust the bottom margin as needed */
-    font-size: 32px; /* Adjust the font size as needed */
-}
-    .review-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        justify-content: center;
-    }
-    
-    .review-item {
-        width: 450px; /* Adjusted width */
-        height: 450px; /* Adjusted height */
-        margin: 5px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    
-    .review-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
 }
 
-.review-item {
-    width: calc(25% - 10px);
-    height: 384px; /* Adjusted to 4x4 inches */
-    margin: 5px;
+.product-item img, .review-item img {
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
-    overflow: hidden;
 }
 
-.review-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.product-item, .review-item {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
-.contact-buttons a img {
-  width: 100px; /* Adjust the width of all icons */
-  height: auto; /* Maintain aspect ratio */
-  margin: 0 10px; /* Adjust the spacing between icons */
+
+.product-item:hover, .review-item:hover {
+    transform: translateY(-5px);
 }
+
+/* Footer Styles */
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Contact Buttons Styles */
 .contact-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact-buttons a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.contact-buttons img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+    .link {
+        display: block;
+        margin: 10px auto;
+    }
+}
+.contact-info {
+    text-align: center;
+    margin-top: 20px;
+    animation: slideFromRight 20s ease infinite; /* Add 'infinite' to make it loop */
+}
+
+@keyframes slideFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+.box-container {
     display: flex;
-    justify-content: center; /* Center the icons horizontally */
-    margin-top: 20px; /* Adjust as needed */
+    justify-content: space-around; /* Adjust alignment as needed */
+    margin-bottom: 20px;
   }
   
-  .contact-buttons a {
-    margin: 0 10px; /* Adjust the spacing between icons */
-  
-}
-body,
-body * {
-    color: white;
-}
-.about {
-    position: relative;
-}
-
-
-.highlight {
-    background-color: #230535; /* Violet color */
-    color: white; /* Text color */
-  }
- /* Add a class to change the color */
-.highlight {
-    background-color: violet !important;
-}
-
-/* Animation for looping text */
-@keyframes slide {
-    0% { transform: translateX(100%); } /* Start from the right edge */
-    100% { transform: translateX(-100%); } /* Move towards the left edge */
+  /* Box styles */
+  .mission.rounded-box,
+  .vision.rounded-box,
+  .our-commitment.rounded-box,
+  .innovation.rounded-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Equal width for all boxes */
+    max-width: calc(25% - 40px); /* 25% width for each box with margin */
+    margin: 0 20px; /* Adjust spacing between boxes */
   }
   
-  .loop-text {
-    white-space: nowrap;
-    overflow: hidden;
-    animation: slide 20s linear infinite; /* Adjusted animation duration to 15s */
-    font-size: 30px; /* Decreased font size to fit more text */
+  /* Animation */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-
-/* Styling for Gmail */
-.gmail {
-  margin-top: 20px;
-  font-size: 18px;
-}
-.about-description {
-        padding-top: 30px; /* Adjust the value as needed */
-}
-.faq {
-    background-color: rgba(30, 3, 66, 0.5); /* Use the same background color as other sections */
-    padding: 20px; /* Adjust padding as needed */
-    margin-bottom: 30px; /* Adjust margin as needed */
-    border-radius: 30px; /* Adjust border radius as needed */
-    color: #ffffff; /* Adjust text color */
-}
-
-.faq {
-    background-color: rgba(30, 3, 66, 0.5); /* Use the same background color as other sections */
-    padding: 20px; /* Adjust padding as needed */
-    margin-bottom: 30px; /* Adjust margin as needed */
-    border-radius: 30px; /* Adjust border radius as needed */
-    color: #ffffff; /* Adjust text color */
-}
-
-.faq h3 {
-    margin-top: 0; /* Remove default top margin */
-}
-
-.faq p {
-    margin-bottom: 20px; /* Adjust margin between questions and descriptions */
-}
+  
+  .mission.rounded-box {
+    animation: slideIn 1s ease forwards;
+  }
+  
+  .vision.rounded-box {
+    animation: slideIn 1s ease 0.2s forwards;
+  }
+  
+  .our-commitment.rounded-box {
+    animation: slideIn 1s ease 0.4s forwards;
+  }
+  
+  .innovation.rounded-box {
+    animation: slideIn 1s ease 0.6s forwards;
+  }
